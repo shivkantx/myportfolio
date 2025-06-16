@@ -21,12 +21,13 @@ import {
   SiPycharm,
   SiCplusplus,
   SiDjango,
+  SiExpress,
 } from "react-icons/si";
 import { VscVscodeInsiders } from "react-icons/vsc";
 
 function Skills() {
   return (
-    <section className="my-[50px] text-white px-[100px]">
+    <section className="my-[50px] px-4 md:px-[50px] lg:px-[100px] text-white">
       <div className="flex flex-col items-center mb-6">
         <h1
           className="text-4xl text-center font-medium text-white mb-1"
@@ -40,8 +41,8 @@ function Skills() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6 w-full">
         {/* Frontend */}
         <div
-          className="bg-[#020140] backdrop-blur-2xl hover:scale-105 transform-all duration-300 p-3 rounded-md border-2 border-purple-600"
-          data-aos="fade-up"
+          className="bg-[#020130] backdrop-blur-2xl hover:scale-101 transition-all duration-400 hover:duration-800 ease-in-out p-3 rounded-md border-2 border-purple-600"
+          data-aos="fade-left"
         >
           <h1 className="text-xl font-medium pb-3 text-center text-white">
             Frontend Languages
@@ -58,21 +59,14 @@ function Skills() {
 
         {/* Backend */}
         <div
-          className="bg-[#020140] backdrop-blur-2xl hover:scale-105 transform-all duration-300 p-3 rounded-md border-2 border-purple-600"
-          data-aos="fade-up"
-          data-aos-delay="100"
+          className="bg-[#020130] backdrop-blur-2xl hover:scale-101 transition-all duration-400 hover:duration-800 ease-in-out p-3 rounded-md border-2 border-purple-600"
+          data-aos="fade-right"
         >
           <h1 className="text-xl font-medium pb-3 text-center text-white">
             Backend Languages
           </h1>
           <div className="flex flex-wrap gap-4 p-3 justify-center">
-            <div
-              className="items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-md flex flex-col text-center transition-all duration-200 transform hover:scale-110 hover:bg-white/20"
-              data-aos="zoom-in"
-            >
-              <p className="text-7xl text-[#303030]">ex</p>
-              <p className="font-bold text-md mt-2 text-white">Express.js</p>
-            </div>
+            <SkillCard Icon={SiExpress} color="#303030" label="Express.js" />
             <SkillCard Icon={SiMongodb} color="#47A248" label="MongoDB" />
             <SkillCard Icon={SiMysql} color="#00758F" label="MySQL" />
             <SkillCard Icon={SiAppwrite} color="#F02E65" label="Appwrite" />
@@ -81,9 +75,8 @@ function Skills() {
 
         {/* Languages & Frameworks */}
         <div
-          className="bg-[#020140] backdrop-blur-2xl hover:scale-105 transform-all duration-300 p-3 rounded-md border-2 border-purple-600"
-          data-aos="fade-up"
-          data-aos-delay="200"
+          className="bg-[#020130] backdrop-blur-2xl hover:scale-101 transition-all duration-400 hover:duration-800 ease-in-out p-3 rounded-md border-2 border-purple-600"
+          data-aos="fade-left"
         >
           <h1 className="text-xl font-medium pb-3 text-center text-white">
             Languages & Frameworks
@@ -99,9 +92,8 @@ function Skills() {
 
         {/* Tools */}
         <div
-          className="bg-[#020140] backdrop-blur-2xl hover:scale-105 transform-all duration-300 p-3 rounded-md border-2 border-purple-600"
-          data-aos="fade-up"
-          data-aos-delay="300"
+          className="bg-[#020130] backdrop-blur-2xl hover:scale-101 transition-all duration-400 hover:duration-800 ease-in-out p-3 rounded-md border-2 border-purple-600"
+          data-aos="fade-right"
         >
           <h1 className="text-xl font-medium pb-3 text-center text-white">
             Tools
@@ -120,14 +112,14 @@ function Skills() {
   );
 }
 
-// Reusable SkillCard with animation
 function SkillCard({ Icon, color, label }) {
   return (
     <div
       data-aos="zoom-in"
-      className="items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-md flex flex-col text-center transition-all duration-200 transform hover:scale-110 hover:bg-white/20"
+      className="items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-md flex flex-col text-center transition-all duration-400 hover:duration-800 ease-in-out transform hover:scale-110 hover:bg-white/20"
+      aria-label={label}
     >
-      <Icon className={`h-[70px] w-[70px]`} style={{ color }} />
+      <Icon className="text-6xl" style={{ color }} />
       <p className="font-bold text-md mt-2 text-white">{label}</p>
     </div>
   );

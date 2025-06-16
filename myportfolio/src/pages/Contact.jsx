@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { data } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Contact() {
   const {
@@ -9,183 +10,120 @@ function Contact() {
     formState: { errors, isSubmitting },
   } = useForm();
 
-  const delay = (d) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve()
-      }, d*1000)
-    })
-  }
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
+
+  const delay = (d) => new Promise((resolve) => setTimeout(resolve, d * 1000));
 
   const onSubmit = async (data) => {
-    await delay(2)
-    console.log(data)
-
-  }
-
-  
+    await delay(2);
+    console.log(data);
+  };
 
   return (
-    <>
-      
-      <div className="relative overflow-x-hidden w-full sm:px-6 md:px-10 bg-[#001f3f] backdrop-blur-2xl">
-        
-        <section className="mt-[100px] w-full p-6 mb-[50px] text-white bg-[#072854]">
-          <div className="flex flex-col gap-4 md:flex-row justify-center items-center">
-            {/* Form 1 */}
-            <div className="md:w-1/3 rounded-lg w-full p-2 backdrop-blur-3xl bg-gray-500/30">
-              <div className="w-full flex justify-between items-center font-extrabold text-white p-2">
-                <div>
-                  <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text ">Get in Touch</h1>
-                  <p className="pl-1 text-sm font-semibold">
-                    Have something to discuss? Send me a message and let's talk.
-                  </p>
-                </div>
-                <div className="p-3" >
-                  <svg
-                    className="text-purple-700"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    width="40"
-                    height="40"
-                  >
-                    <circle cx="6" cy="12" r="2" />
-                    <circle cx="18" cy="6" r="2" />
-                    <circle cx="18" cy="18" r="2" />
-                    <line x1="7.5" y1="11" x2="16.5" y2="7" />
-                    <line x1="7.5" y1="13" x2="16.5" y2="17" />
-                  </svg>
-                </div>
-              </div>
-
-              {isSubmitting && (
-        <div className="text-white text-center py-2 font-semibold">
-          Sending...
-        </div>
-      )}
-              <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="px-5 py-3 space-y-8 flex flex-col text-white"
-              >
-                {/* Name input */}
-                <input
-                  type="text"
-                  {...register("username", {
-                    required: {
-                      value: true,
-                      message: "This field is required",
-                    },
-                    minLength: { value: 3, message: "Minimum length is 3" },
-                    maxLength: { value: 8, message: "Maximum length is 8" },
-                  })}
-                  className="backdrop-blur-3xl w-full focus:outline-3 border focus:border-0 outline-blue-600 bg-gray-950/10 rounded-lg p-2"
-                  placeholder="Your name"
-                />
-                {errors.username && (
-                  <div className="text-red-600 text-xs">
-                    {errors.username.message}
-                  </div>
-                )}
-
-                {/* Email input */}
-                <input
-                  type="email"
-                  {...register("mail", {
-                    required: {
-                      value: true,
-                      message: "This field is required",
-                    },
-                  })}
-                  className="backdrop-blur-3xl w-full focus:outline-3 border focus:border-0 outline-blue-600 bg-gray-950/10 rounded-lg p-2"
-                  placeholder="Enter your email"
-                />
-                {errors.mail && (
-                  <div className="text-red-600 text-xs">
-                    {errors.mail.message}
-                  </div>
-                )}
-
-                {/* Message input with word limit */}
-                <textarea
-                  rows="4"
-                  {...register("message", {
-                    required: {
-                      value: true,
-                      message: "Message is required",
-                    },
-                    minLength: {
-                      value: 10,
-                      message: "Minimum 10 characters required",
-                    },
-                    validate: (value) =>
-                      value.trim().split(/\s+/).length <= 50 ||
-                      "Maximum 50 words allowed",
-                  })}
-                  className="backdrop-blur-3xl w-full focus:outline-3 border focus:border-0 outline-blue-600 bg-gray-950/10 rounded-lg p-2"
-                  placeholder="Your message"
-                />
-                {errors.message && (
-                  <div className="text-red-600 text-xs">
-                    {errors.message.message}
-                  </div>
-                )}
-
-                {/* Submit button */}
-                <button
-                  disabled={isSubmitting}
-                  type="submit"
-                  className="group bg-gradient-to-r from-purple-500 to-blue-500 hover:bg-gradient-to-l hover:via-blue-500 hover:from-purple-500 hover:to-purple-500 p-3 flex items-center transition-all hover:scale-102 duration-200 justify-center space-x-2 text-sm font-semibold rounded-xl disabled:opacity-50"
-                >
-                  <svg
-                    className="group-hover:rotate-45 transition-all duration-200"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    width="20"
-                    height="20"
-                  >
-                    <path d="M22 2L11 13" />
-                    <path d="M22 2L15 22L11 13L2 9L22 2Z" />
-                  </svg>
-                  <p>Send message</p>
-                </button>
-              </form>
-            </div>
-
-            {/* Optional Second Column */}
-            <div className="p-2 w-full md:w-full bg-gray-500/30 rounded-lg">
-                <div>
-                   <div className="flex gap-x-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      className="w-10 h-10 text-white bg-blue-600 rounded-full p-2 hover:bg-blue-700 transition"
-                    >
-                      <path d="M12 2C6.486 2 2 6.037 2 11c0 2.132.888 4.087 2.361 5.657-.33 1.327-1.192 2.784-1.354 3.056a.5.5 0 0 0 .672.717c1.04-.373 2.908-1.3 4.052-2.105A11.926 11.926 0 0 0 12 20c5.514 0 10-4.037 10-9s-4.486-9-10-9zM8 10h8v2H8v-2z" />
-                    </svg>
-
-
-                    <p>Comment</p>
-                   </div>
-                </div>
-              {/* You can add contact info, map or anything else here */}
-            </div>
-
-
+    
+      <section className="max-w-3xl mx-auto p-6 bg-[#072854] rounded-lg backdrop-blur-2xl">
+        <div className="flex flex-col gap-4 justify-center items-center">
+          {/* Heading */}
+          <div className="w-full text-center mb-4" data-aos="fade-left">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
+              Contact Me
+            </h1>
+            <p className="text-sm font-semibold mt-1">
+              Have something to discuss? Send me a message and let's talk.
+            </p>
           </div>
-        </section>
-      </div>
-    </>
+
+          {/* Sending message text */}
+          {isSubmitting && (
+            <div className="text-white text-center py-2 font-semibold">
+              Sending...
+            </div>
+          )}
+
+          {/* Contact Form */}
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="w-full px-5 py-3 space-y-6 flex flex-col"
+          >
+            {/* Name Input */}
+            <input
+              type="text"
+              autoComplete="name"
+              {...register("username", {
+                required: "This field is required",
+                minLength: { value: 3, message: "Minimum length is 3" },
+                maxLength: { value: 20, message: "Maximum length is 20" },
+              })}
+              className="w-full bg-gray-950/10 p-3 rounded-lg backdrop-blur-md border border-white/20 focus:outline-none focus:border-3 focus:border-purple-500"
+              placeholder="Your name"
+              data-aos="fade-right"
+            />
+            {errors.username && (
+              <span className="text-red-500 text-sm">{errors.username.message}</span>
+            )}
+
+            {/* Email Input */}
+            <input
+              type="email"
+              autoComplete="email"
+              {...register("mail", {
+                required: "This field is required",
+              })}
+              className="w-full bg-gray-950/10 p-3 rounded-lg backdrop-blur-md border border-white/20 focus:outline-none focus:border-3 focus:border-purple-500"
+              placeholder="Enter your email"
+              data-aos="fade-left"
+            />
+            {errors.mail && (
+              <span className="text-red-500 text-sm">{errors.mail.message}</span>
+            )}
+
+            {/* Message Box */}
+            <textarea
+              rows="4"
+              autoComplete="off"
+              {...register("message", {
+                required: "Message is required",
+                minLength: {
+                  value: 10,
+                  message: "Minimum 10 characters required",
+                },
+                validate: (value) =>
+                  value.trim().split(/\s+/).length <= 50 || "Maximum 50 words allowed",
+              })}
+              className="w-full bg-gray-950/10 p-3 rounded-lg backdrop-blur-md border border-white/20 focus:outline-none focus:border-3 focus:border-purple-500"
+              placeholder="Your message"
+              data-aos="fade-right"
+            />
+            {errors.message && (
+              <span className="text-red-500 text-sm">{errors.message.message}</span>
+            )}
+
+            {/* Submit Button */}
+            <button
+              disabled={isSubmitting}
+              type="submit"
+              data-aos="fade-left"
+              className="group bg-gradient-to-r from-purple-500 to-blue-500 hover:from-blue-500 hover:to-purple-500 p-3 rounded-xl text-sm font-semibold flex justify-center items-center gap-2 transition-all duration-200 disabled:opacity-50"
+            >
+              <svg
+                className="group-hover:rotate-45 transition-transform duration-200"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                width="20"
+                height="20"
+              >
+                <path d="M22 2L11 13" />
+                <path d="M22 2L15 22L11 13L2 9L22 2Z" />
+              </svg>
+              <span>Send message</span>
+            </button>
+          </form>
+        </div>
+      </section>
   );
 }
 

@@ -15,15 +15,16 @@ function Projects() {
 
       <div className="w-full flex flex-wrap justify-center items-start gap-3">
         {/* project-1 */}
-        <div className="w-full sm:w-1/2 lg:w-1/4 bg-gray-800 rounded-md p-3">
+        <div
+          className="w-full sm:w-1/2 lg:w-1/4 bg-gray-800 rounded-md p-3"
+          data-aos="zoom-out"
+        >
           <div className="flex flex-col items-start">
-            {/* Image Placeholder */}
             <div className="h-[170px] w-full rounded-md bg-blue-950"></div>
 
-            {/* Title & Description */}
             <div className="w-full mt-2 text-left">
-              <h1 className="text-xl font-bold text-white">E-commerce</h1>
-              <p className="text-xs text-gray-300">
+              <h1 className="text-xl font-bold text-white " data-aos="fade-right">E-commerce</h1>
+              <p className="text-xs text-gray-300" data-aos="fade-left">
                 A full-stack e-commerce web app that lets users browse products,
                 manage their cart, and place orders. Admins can control
                 products, users, and orders. Built to showcase skills in modern
@@ -31,8 +32,7 @@ function Projects() {
                 integration.
               </p>
 
-              {/* Language/Tech Stack Buttons */}
-              <div className="flex flex-wrap justify-start gap-2 mt-3">
+              <div data-aos="fade-up" className="flex flex-wrap justify-start gap-2 mt-3">
                 {[
                   "JavaScript",
                   "React",
@@ -54,31 +54,23 @@ function Projects() {
         </div>
 
         {/* project-2 */}
-        <div className="w-full sm:w-1/2 lg:w-1/4 bg-gray-800 rounded-md p-3">
+        <div
+          className="w-full sm:w-1/2 lg:w-1/4 bg-gray-800 rounded-md p-3"
+          data-aos="zoom-in"
+        >
           <div className="flex flex-col items-start">
-            {/* Image Placeholder */}
             <div className="h-[170px] w-full rounded-md bg-blue-950"></div>
 
-            {/* Title & Description */}
             <div className="w-full mt-2 text-left">
-              <h1 className="text-xl font-bold text-white">E-commerce</h1>
-              <p className="text-xs text-gray-300">
-                A full-stack e-commerce web app that lets users browse products,
-                manage their cart, and place orders. Admins can control
-                products, users, and orders. Built to showcase skills in modern
-                web development with secure authentication and payment
-                integration.
+              <h1 className="text-xl font-bold text-white " data-aos="fade-right">Razorpay UI Cloan</h1>
+              <p className="text-xs text-gray-300" data-aos="fade-left">
+                This project is a responsive Razorpay website clone built using Tailwind CSS. It replicates the original site's layout and styling to showcase UI design skills and Tailwind proficiency.
               </p>
 
-              {/* Language/Tech Stack Buttons */}
-              <div className="flex flex-wrap justify-start gap-2 mt-3">
+              <div data-aos="fade-up" className="flex flex-wrap justify-start gap-2 mt-3">
                 {[
-                  "JavaScript",
-                  "React",
+                  "Html",
                   "Tailwind CSS",
-                  "Node.js",
-                  "Express.js",
-                  "MongoDB",
                 ].map((tech) => (
                   <button
                     key={tech}
@@ -93,15 +85,16 @@ function Projects() {
         </div>
 
         {/* project-3 */}
-        <div className="w-full sm:w-1/2 lg:w-1/4 bg-gray-800 rounded-md p-3">
+        <div
+          className="w-full sm:w-1/2 lg:w-1/4 bg-gray-800 rounded-md p-3"
+          data-aos="zoom-out"
+        >
           <div className="flex flex-col items-start">
-            {/* Image Placeholder */}
             <div className="h-[170px] w-full rounded-md bg-blue-950"></div>
 
-            {/* Title & Description */}
             <div className="w-full mt-2 text-left">
-              <h1 className="text-xl font-bold text-white">E-commerce</h1>
-              <p className="text-xs text-gray-300">
+              <h1 className="text-xl font-bold text-white " data-aos="fade-right">Todos using React</h1>
+              <p className="text-xs text-gray-300" data-aos="fade-left">
                 A full-stack e-commerce web app that lets users browse products,
                 manage their cart, and place orders. Admins can control
                 products, users, and orders. Built to showcase skills in modern
@@ -109,8 +102,7 @@ function Projects() {
                 integration.
               </p>
 
-              {/* Language/Tech Stack Buttons */}
-              <div className="flex flex-wrap justify-start gap-2 mt-3">
+              <div data-aos="fade-up" className="flex flex-wrap justify-start gap-2 mt-3">
                 {[
                   "JavaScript",
                   "React",
@@ -132,15 +124,16 @@ function Projects() {
         </div>
 
         {/* project-4 */}
-        <div className="w-full sm:w-1/2 lg:w-1/4 bg-gray-800 rounded-md p-3">
+        <div
+          className="w-full sm:w-1/2 lg:w-1/4 bg-gray-800 rounded-md p-3"
+          data-aos="zoom-out"
+        >
           <div className="flex flex-col items-start">
-            {/* Image Placeholder */}
             <div className="h-[170px] w-full rounded-md bg-blue-950"></div>
 
-            {/* Title & Description */}
             <div className="w-full mt-2 text-left">
-              <h1 className="text-xl font-bold text-white">E-commerce</h1>
-              <p className="text-xs text-gray-300">
+              <h1 className="text-xl font-bold text-white " data-aos="fade-right">E-commerce</h1>
+              <p className="text-xs text-gray-300" data-aos="fade-left">
                 A full-stack e-commerce web app that lets users browse products,
                 manage their cart, and place orders. Admins can control
                 products, users, and orders. Built to showcase skills in modern
@@ -148,8 +141,7 @@ function Projects() {
                 integration.
               </p>
 
-              {/* Language/Tech Stack Buttons */}
-              <div className="flex flex-wrap justify-start gap-2 mt-3">
+              <div data-aos="fade-up" className="flex flex-wrap justify-start gap-2 mt-3">
                 {[
                   "JavaScript",
                   "React",
@@ -169,6 +161,7 @@ function Projects() {
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   );

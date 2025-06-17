@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import { BrowserRouter, useLocation } from "react-router-dom";
 
 import Header from "./components/Header/Header";
@@ -28,7 +31,6 @@ function ScrollToSectionOnRouteChange() {
 function PageContent() {
   return (
     <div className="relative overflow-x-hidden w-full sm:px-6 md:px-10 bg-[#020138] backdrop-blur-2xl text-white">
-      {/* Sections rendered on the same page */}
       <div id="home">
         <Home />
       </div>
@@ -52,6 +54,15 @@ function PageContent() {
 }
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,   // animate every time you scroll
+      mirror: true,  // also animate on scroll up
+    });
+    AOS.refresh();
+  }, []);
+
   return (
     <BrowserRouter>
       <ScrollToSectionOnRouteChange />

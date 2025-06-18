@@ -9,6 +9,7 @@ function Header() {
   const navigate = useNavigate();
 
   const menuItems = [
+    { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
@@ -16,7 +17,6 @@ function Header() {
     { id: "contact", label: "Contact" },
   ];
 
-  // Track scroll section
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
@@ -52,7 +52,7 @@ function Header() {
   };
 
   const handleLogoClick = () => {
-    navigate("/"); // navigate to home route
+    navigate("/");
     const homeSection = document.getElementById("home");
     if (homeSection) {
       homeSection.scrollIntoView({ behavior: "smooth" });

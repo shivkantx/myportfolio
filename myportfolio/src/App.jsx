@@ -37,14 +37,14 @@ function PageContent() {
       <div id="about">
         <About />
       </div>
-      <div id="education">
-        <Education />
+      <div id="skills">
+        <Skills />
       </div>
       <div id="projects">
         <Projects />
       </div>
-      <div id="skills">
-        <Skills />
+      <div id="education">
+        <Education />
       </div>
       <div id="contact">
         <Contact />
@@ -57,8 +57,8 @@ function App() {
   useEffect(() => {
     AOS.init({
       duration: 800,
-      once: false,   // animate every time you scroll
-      mirror: true,  // also animate on scroll up
+      once: false,
+      mirror: true,
     });
     AOS.refresh();
   }, []);

@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import Aos from "aos";
-import "aos/dist/aos.css";
+import React from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineMailOutline } from "react-icons/md";
 import AnimatedBtn from "../components/SVG_LoGo/AnimatedBtn";
@@ -11,26 +9,22 @@ import webdev from "../assets/webdev.gif";
 import projectLogo from "../assets/projectLogo.png";
 
 function Home() {
-  useEffect(() => {
-    Aos.init({
-      duration: 800,
-      once: false,
-      mirror: true,
-      offset: 100,
-      easing: "ease-in-out",
-    });
-  }, []);
-
   return (
-    <section className="mt-16 w-full bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] sm:[mask-image:none] text-white relative px-4">
+    <section
+      className="pt-16 min-h-screen text-white bg-[#020138] bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"
+    >
       <div className="flex flex-col md:flex-row w-full p-4 justify-between items-center">
         {/* Left Section */}
         <div className="lg:pl-5 gap-y-4 flex flex-col w-full md:w-1/2 p-2">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-1" data-aos="fade-right">Hi</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-1" data-aos="fade-right">
+            Hi
+          </h1>
           <h1 className="text-4xl sm:text-5xl font-bold mb-2" data-aos="fade-left">
             I'm <span className="text-amber-400">Shiv Kant</span>
           </h1>
-          <h1 className="text-2xl sm:text-3xl font-semibold" data-aos="fade-right">Full Stack Developer</h1>
+          <h1 className="text-2xl sm:text-3xl font-semibold" data-aos="fade-right">
+            Full Stack Developer
+          </h1>
           <p className="mt-4 text-base sm:text-lg leading-relaxed" data-aos="fade-left">
             Problem solver passionate about React, JavaScript, Java, Python and full-stack development using Django.
             MCA graduate building efficient and impactful solutions.
@@ -54,7 +48,11 @@ function Home() {
             >
               <div className="flex items-center justify-center gap-2">
                 <span>Projects</span>
-                <img src={projectLogo} className="w-5 group-hover:rotate-12 transition-transform duration-300" alt="Projects" />
+                <img
+                  src={projectLogo}
+                  className="w-5 group-hover:rotate-12 transition-transform duration-300"
+                  alt="Projects"
+                />
               </div>
             </a>
             <Link

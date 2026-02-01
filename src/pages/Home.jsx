@@ -13,70 +13,59 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center bg-[#0f1123] text-white px-6 md:px-16 lg:px-28"
+      className="relative min-h-[calc(100vh-90px)] flex items-center bg-[#0f1123] text-white px-6 sm:px-10 lg:px-24 overflow-hidden"
     >
-      <div className="max-w-6xl w-full grid md:grid-cols-2 gap-16 items-center">
+      {/* centered glow */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[420px] h-[420px] bg-purple-700 rounded-full blur-[160px] opacity-25"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl w-full mx-auto grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 
         {/* LEFT */}
-        <div data-aos="fade-right">
+        <div data-aos="fade-right" className="space-y-6 max-w-xl">
 
-          <p
-            data-aos="fade-up"
-            className="text-purple-400 font-semibold mb-3 tracking-wide"
-          >
+          <p className="text-purple-400 font-semibold tracking-wide text-sm sm:text-base">
             Full Stack Developer
           </p>
 
-          <h1
-            data-aos="fade-up"
-            data-aos-delay="150"
-            className="text-4xl md:text-6xl font-extrabold leading-tight mb-6"
-          >
-            Hi, I’m <span className="text-purple-400">Shiv Kant</span>
+          <h1 className="font-extrabold leading-tight text-3xl sm:text-4xl md:text-5xl xl:text-6xl">
+            Hi, I’m{" "}
+            <span className="bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
+              Shiv Kant
+            </span>
             <br />
             I build scalable web apps
           </h1>
 
-          <p
-            data-aos="fade-up"
-            data-aos-delay="300"
-            className="text-gray-400 text-lg leading-relaxed max-w-xl mb-10"
-          >
+          <p className="text-gray-400 text-base sm:text-lg">
             Next.js & MERN Stack Developer focused on building high-performance,
             responsive applications with clean UI, secure authentication and
             modern backend systems.
           </p>
 
-          {/* CTA */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="450"
-            className="flex flex-wrap gap-5"
-          >
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-4 pt-2">
             <a
               href="https://github.com/shivkantx"
               target="_blank"
               rel="noreferrer"
-              className="bg-purple-600 hover:bg-purple-700 px-7 py-3 rounded-lg font-semibold transition shadow-md hover:shadow-purple-500/30"
+              className="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 rounded-lg font-semibold hover:shadow-purple-500/40 hover:scale-[1.03] transition"
             >
               View Projects
             </a>
 
             <Link
               to="/contact"
-              className="border border-gray-600 hover:border-purple-400 px-7 py-3 rounded-lg font-semibold flex items-center gap-2 transition hover:text-purple-400"
+              className="border border-gray-600 px-6 py-3 rounded-lg font-semibold flex items-center gap-2 hover:border-purple-400 hover:text-purple-400 transition"
             >
               <MdOutlineMailOutline size={20} />
               Contact Me
             </Link>
           </div>
 
-          {/* SOCIALS */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="600"
-            className="flex gap-6 mt-10 text-2xl text-gray-500"
-          >
+          {/* Socials */}
+          <div className="flex gap-6 text-2xl text-gray-500 pt-4">
             <a
               href="https://www.linkedin.com/in/shiv-kant-036a17289/"
               target="_blank"
@@ -100,13 +89,13 @@ const Home = () => {
         {/* RIGHT TECH CARD */}
         <div
           data-aos="fade-left"
-          className="relative bg-[#15182f] border border-gray-800 rounded-2xl p-10 shadow-xl"
+          className="bg-[#15182f]/80 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 sm:p-10 shadow-2xl w-full max-w-md mx-auto lg:mx-0"
         >
           <h3 className="text-xl font-bold mb-6 text-purple-400">
             Tech Stack
           </h3>
 
-          <div className="grid grid-cols-2 gap-4 text-gray-300">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 text-gray-300 text-sm sm:text-base">
 
             {[
               "Next.js",
@@ -120,8 +109,7 @@ const Home = () => {
             ].map((tech) => (
               <div
                 key={tech}
-                data-aos="zoom-in"
-                className="bg-[#0f1123] px-4 py-2 rounded-lg"
+                className="bg-[#0f1123] px-4 py-2 rounded-lg text-center hover:bg-purple-600/20 transition"
               >
                 {tech}
               </div>
@@ -129,6 +117,7 @@ const Home = () => {
 
           </div>
         </div>
+
       </div>
     </section>
   );

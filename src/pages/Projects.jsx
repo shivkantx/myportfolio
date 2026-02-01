@@ -1,179 +1,184 @@
-import React from "react";
-import { FaExternalLinkAlt, FaInfoCircle } from "react-icons/fa"; // More descriptive icons
+import React, { useState } from "react";
+import { FaExternalLinkAlt, FaInfoCircle } from "react-icons/fa";
 import "aos/dist/aos.css";
 
+import stackflow from "../assets/project-previews/stackflow.png";
+import queue from "../assets/project-previews/queue.png";
+import authsystem from "../assets/project-previews/auth-system.png";
+import cloudinary from "../assets/project-previews/cloudinary.png";
+import portfolio from "../assets/project-previews/portfolio.png";
+
 function Projects() {
+  const [previewImage, setPreviewImage] = useState(null);
+
   const projectList = [
     {
-      title: "E-commerce Platform",
+      title: "StackOverflow Clone (Full Stack)",
       description:
-        "A robust full-stack e-commerce web application enabling users to browse products, manage their shopping cart, and securely place orders. Features include comprehensive admin controls for product and order management.",
-      tech: [
-        "JavaScript",
-        "React",
-        "Tailwind CSS",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-      ],
-      imageGradient: "from-blue-600 to-purple-600", // Custom gradient for each project image placeholder
-      liveLink: "#", // Replace with actual live demo URL
-      githubLink: "#", // Replace with actual GitHub repo URL
+        "A full-stack Q&A platform built with Next.js and Appwrite featuring authentication, posting, voting and responsive UI.",
+      tech: ["Next.js", "Appwrite", "Authentication", "Full Stack"],
+      image: stackflow,
+      liveLink: "https://stackoverflow-appwrite-three.vercel.app/",
+      githubLink: "https://github.com/shivkantx/stackoverflow-appwrite",
     },
     {
-      title: "Razorpay UI Clone",
+      title: "Queue Management System",
       description:
-        "A pixel-perfect and highly responsive clone of the Razorpay website, meticulously crafted to demonstrate advanced front-end development skills and a keen eye for UI/UX detail using Tailwind CSS.",
-      tech: ["HTML5", "CSS3", "Tailwind CSS"],
-      imageGradient: "from-teal-500 to-green-500",
-      liveLink: "#",
-      githubLink: "#",
+        "A complete queue handling system to efficiently manage user flow with clean UI and structured system logic.",
+      tech: ["Next.js", "React", "System Logic"],
+      image: queue,
+      liveLink: "https://queue-management-system-ten.vercel.app/",
+      githubLink: "https://github.com/shivkantx/Queue-Management-System",
     },
     {
-      title: "React Task Manager", // More professional title
+      title: "Authentication System with User Management",
       description:
-        "A dynamic task management application built with React, featuring full CRUD (Create, Read, Update, Delete) operations, intuitive filtering capabilities, and persistent state management for a seamless user experience.",
-      tech: [
-        "JavaScript",
-        "React",
-        "Tailwind CSS",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-      ],
-      imageGradient: "from-orange-500 to-red-500",
-      liveLink: "#",
-      githubLink: "#",
+        "Secure authentication system built with Next.js and MongoDB featuring login, logout, password recovery and protected routes.",
+      tech: ["Next.js", "MongoDB", "Authentication", "User Operations"],
+      image: authsystem,
+      liveLink: "https://youtube-next-js-ftwv.vercel.app/login",
+      githubLink: "https://github.com/shivkantx/youtube-next-js",
     },
     {
-      title: "Ayurvedic Medicine System",
+      title: "Cloudinary Media Tool",
       description:
-        "A comprehensive web-based platform developed with PHP and MySQL, designed to recommend Ayurvedic medicines. Users can input symptoms or search criteria to receive personalized medicine suggestions.",
-      tech: ["HTML5", "CSS3", "Bootstrap", "JavaScript", "PHP", "MySQL"],
-      imageGradient: "from-yellow-500 to-amber-500",
-      liveLink: "#",
-      githubLink: "#",
+        "Cloudinary-powered application for secure media uploads and social sharing workflows.",
+      tech: ["React", "Cloudinary API", "Media Handling"],
+      image: cloudinary,
+      liveLink: "https://cloudinary-ssh.vercel.app/social-share",
+      githubLink: "https://github.com/shivkantx/Cloudinary-SSH",
     },
-    // Add more projects here following the same structure
-    // {
-    //   title: "Project Title",
-    //   description: "Brief description of the project.",
-    //   tech: ["Tech1", "Tech2"],
-    //   imageGradient: "from-cyan-500 to-blue-500",
-    //   liveLink: "#",
-    //   githubLink: "#",
-    // },
+    {
+      title: "VideoTube Backend API",
+      description:
+        "Scalable REST API featuring JWT authentication and structured backend architecture.",
+      tech: ["Node.js", "Express.js", "JWT", "REST API"],
+      backendOnly: true,
+      githubLink: "https://github.com/shivkantx/VideoTube",
+    },
+    {
+      title: "Personal Portfolio Website",
+      description:
+        "Modern animated portfolio showcasing projects, skills and resume.",
+      tech: ["React", "Tailwind CSS", "Animations"],
+      image: portfolio,
+      liveLink: "https://shivkantx.github.io/myportfolio",
+      githubLink: "https://github.com/shivkantx/myportfolio",
+    },
   ];
 
   return (
     <section className="relative min-h-screen py-20 px-6 md:px-12 lg:px-20 bg-[#0d0d1e] text-white font-poppins overflow-hidden">
-      {/* Background Gradients/Blobs (Consistent with other pages) */}
-      <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-to-br from-purple-700 to-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob-slow"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-tl from-pink-600 to-red-400 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob-slow animation-delay-3000"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-tr from-teal-500 to-lime-400 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob-slow animation-delay-6000"></div>
 
-      {/* Section Header */}
+      {/* Header */}
       <div
         className="relative z-10 max-w-screen-xl mx-auto text-center mb-16"
         data-aos="fade-down"
       >
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-wide bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 text-transparent bg-clip-text">
           My Portfolio
         </h1>
-        <p className="text-lg md:text-xl text-gray-300 mt-5 max-w-2xl mx-auto font-light leading-relaxed">
-          Dive into a curated selection of my most impactful projects,
-          showcasing my expertise in full-stack development, clean code, and
-          intuitive user experiences.
+        <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          Real-world projects showcasing full-stack and modern frontend development.
         </p>
       </div>
 
-      {/* Projects Grid */}
+      {/* Grid */}
       <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 max-w-7xl mx-auto">
+
         {projectList.map((project, index) => (
           <div
             key={index}
             className="bg-gray-900/60 rounded-2xl p-6 shadow-2xl border border-gray-700 backdrop-blur-md
-                       transform transition-all duration-500 ease-in-out hover:scale-[1.03] hover:shadow-purple-700/40 hover:border-purple-500
-                       group relative overflow-hidden" // Added group and relative for inner animations
+            transform transition-all duration-500 hover:scale-[1.03] hover:shadow-purple-700/40 hover:border-purple-500
+            group relative overflow-hidden"
             data-aos="zoom-in-up"
             data-aos-delay={index * 150}
           >
-            {/* Project Image Placeholder (Dynamic Gradient) */}
-            <div
-              className={`h-[180px] rounded-xl mb-6 overflow-hidden relative group-hover:scale-105 transition-transform duration-500 bg-gradient-to-br ${project.imageGradient}`}
-            >
-              {/* Optional: Add a subtle pattern or icon over the gradient */}
-              <div className="absolute inset-0 flex items-center justify-center text-white/20 text-6xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                {/* Example: <FaCode /> or a project-specific icon */}
-              </div>
+
+            {/* IMAGE OR BACKEND PLACEHOLDER */}
+            <div className="h-[180px] rounded-xl mb-6 overflow-hidden cursor-pointer">
+
+              {project.backendOnly ? (
+                <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-400 text-sm italic">
+                  Backend Project — No UI Preview
+                </div>
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  onClick={() => setPreviewImage(project.image)}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              )}
+
             </div>
 
-            <h2
-              className="text-2xl font-bold mb-3 bg-gradient-to-r from-blue-300 to-purple-300 text-transparent bg-clip-text"
-              data-aos="fade-right"
-              data-aos-delay={index * 150 + 100}
-            >
+            <h2 className="text-2xl font-bold mb-3 bg-gradient-to-r from-blue-300 to-purple-300 text-transparent bg-clip-text">
               {project.title}
             </h2>
-            <p
-              className="text-gray-300 text-sm mb-4 min-h-[90px] leading-relaxed" // Increased min-height for consistent card size
-              data-aos="fade-left"
-              data-aos-delay={index * 150 + 200}
-            >
+
+            <p className="text-gray-300 text-sm mb-4 min-h-[90px] leading-relaxed">
               {project.description}
             </p>
 
-            {/* Tech Stack Tags */}
-            <div
-              className="flex flex-wrap gap-2 mb-6"
-              data-aos="fade-up"
-              data-aos-delay={index * 150 + 300}
-            >
+            <div className="flex flex-wrap gap-2 mb-6">
               {project.tech.map((tech) => (
                 <span
                   key={tech}
                   className="bg-purple-600/30 text-purple-200 text-xs px-3 py-1 rounded-full border border-purple-500
-                             hover:bg-purple-500 hover:text-white hover:scale-105 transition-all duration-300 font-medium"
+                  hover:bg-purple-500 hover:text-white transition"
                 >
                   {tech}
                 </span>
               ))}
             </div>
 
-            {/* Action Buttons */}
-            <div
-              className="flex justify-between items-center pt-4 border-t border-gray-700/50" // Subtle separator
-              data-aos="fade-up"
-              data-aos-delay={index * 150 + 400}
-            >
-              <a
-                href={project.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-white rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 hover:from-cyan-500 hover:to-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-200 transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md"
-              >
-                <span className="relative px-4 py-2 transition-all ease-in duration-75 bg-[#0d0d1e] rounded-full group-hover:bg-opacity-0 flex items-center gap-1.5">
-                  {" "}
-                  {/* Reduced padding and gap */}
-                  Demo <FaExternalLinkAlt className="text-xs" />
-                </span>
-              </a>
+            <div className="flex justify-between items-center pt-4 border-t border-gray-700/50">
+
+              {!project.backendOnly && (
+                <a
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex p-0.5 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 hover:scale-105 transition shadow-md"
+                >
+                  <span className="px-4 py-2 bg-[#0d0d1e] rounded-full flex items-center gap-1.5">
+                    Demo <FaExternalLinkAlt className="text-xs" />
+                  </span>
+                </a>
+              )}
+
               <a
                 href={project.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-white rounded-full bg-gradient-to-br from-purple-600 to-pink-500 hover:from-pink-500 hover:to-purple-600 focus:ring-4 focus:outline-none focus:ring-purple-200 transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md"
+                className="group inline-flex p-0.5 rounded-full bg-gradient-to-br from-purple-600 to-pink-500 hover:scale-105 transition shadow-md"
               >
-                <span className="relative px-4 py-2 transition-all ease-in duration-75 bg-[#0d0d1e] rounded-full group-hover:bg-opacity-0 flex items-center gap-1.5">
-                  {" "}
-                  {/* Reduced padding and gap */}
+                <span className="px-4 py-2 bg-[#0d0d1e] rounded-full flex items-center gap-1.5">
                   Code <FaInfoCircle className="text-xs" />
                 </span>
               </a>
+
             </div>
           </div>
         ))}
       </div>
+
+      {/* IMAGE PREVIEW MODAL */}
+      {previewImage && (
+        <div
+          onClick={() => setPreviewImage(null)}
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-pointer"
+        >
+          <img
+            src={previewImage}
+            alt="Preview"
+            className="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl"
+          />
+        </div>
+      )}
+
     </section>
   );
 }

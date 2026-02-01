@@ -1,116 +1,186 @@
-import React from "react";
-import { FaCode } from "react-icons/fa";
-import CPlusPlusLogo from "../assets/ProgramLangIMG/C++.png";
-import CssLogo from "../assets/ProgramLangIMG/CSS.png";
-import DjangoLogo from "../assets/ProgramLangIMG/DJANGO.png";
-import HtmlLogo from "../assets/ProgramLangIMG/HTML.png";
-import JavaLogo from "../assets/ProgramLangIMG/JAVA.png";
-import JavaScriptLogo from "../assets/ProgramLangIMG/JS.png";
-import PythonLogo from "../assets/ProgramLangIMG/PYTHON.png";
-import ReactLogo from "../assets/ProgramLangIMG/REACT.png";
-import TailwindLogo from "../assets/ProgramLangIMG/TAILWIND.png";
+import React, { useState } from "react";
+import { FaExternalLinkAlt, FaInfoCircle } from "react-icons/fa";
+import "aos/dist/aos.css";
 
+import stackflow from "../assets/project-previews/stackflow.png";
+import queue from "../assets/project-previews/queue.png";
+import authsystem from "../assets/project-previews/auth-system.png";
+import cloudinary from "../assets/project-previews/cloudinary.png";
+import portfolio from "../assets/project-previews/portfolio.png";
 
+function Projects() {
+  const [previewImage, setPreviewImage] = useState(null);
 
-function Portfolio() {
-  const techStack = [
-    { logo: PythonLogo, label: "Python", aos: "fade-left" },
-    { logo: CssLogo, label: "CSS", aos: "fade-up" },
-    { logo: JavaScriptLogo, label: "JavaScript", aos: "fade-left" },
-    { logo: ReactLogo, label: "React", aos: "fade-right" },
-    { logo: JavaLogo, label: "Java", aos: "fade-up" },
-    { logo: TailwindLogo, label: "Tailwind", aos: "fade-right" },
-    { logo: DjangoLogo, label: "Django", aos: "fade-up" },
-    { logo: CPlusPlusLogo, label: "C++", aos: "fade-left" },
+  const projectList = [
+    {
+      title: "StackOverflow Clone (Full Stack)",
+      description:
+        "A full-stack Q&A platform built with Next.js and Appwrite featuring authentication, posting, voting and responsive UI.",
+      tech: ["Next.js", "Appwrite", "Authentication", "Full Stack"],
+      image: stackflow,
+      liveLink: "https://stackoverflow-appwrite-three.vercel.app/",
+      githubLink: "https://github.com/shivkantx/stackoverflow-appwrite",
+    },
+    {
+      title: "Queue Management System",
+      description:
+        "A complete queue handling system to efficiently manage user flow with clean UI and structured system logic.",
+      tech: ["Next.js", "React", "System Logic"],
+      image: queue,
+      liveLink: "https://queue-management-system-ten.vercel.app/",
+      githubLink: "https://github.com/shivkantx/Queue-Management-System",
+    },
+    {
+      title: "Authentication System with User Management",
+      description:
+        "Secure authentication system built with Next.js and MongoDB featuring login, logout, password recovery and protected routes.",
+      tech: ["Next.js", "MongoDB", "Authentication", "User Operations"],
+      image: authsystem,
+      liveLink: "https://youtube-next-js-ftwv.vercel.app/login",
+      githubLink: "https://github.com/shivkantx/youtube-next-js",
+    },
+    {
+      title: "Cloudinary Media Tool",
+      description:
+        "Cloudinary-powered application for secure media uploads and social sharing workflows.",
+      tech: ["React", "Cloudinary API", "Media Handling"],
+      image: cloudinary,
+      liveLink: "https://cloudinary-ssh.vercel.app/social-share",
+      githubLink: "https://github.com/shivkantx/Cloudinary-SSH",
+    },
+    {
+      title: "VideoTube Backend API",
+      description:
+        "Scalable REST API featuring JWT authentication and structured backend architecture.",
+      tech: ["Node.js", "Express.js", "JWT", "REST API"],
+      backendOnly: true,
+      githubLink: "https://github.com/shivkantx/VideoTube",
+    },
+    {
+      title: "Personal Portfolio Website",
+      description:
+        "Modern animated portfolio showcasing projects, skills and resume.",
+      tech: ["React", "Tailwind CSS", "Animations"],
+      image: portfolio,
+      liveLink: "https://shivkantx.github.io/myportfolio",
+      githubLink: "https://github.com/shivkantx/myportfolio",
+    },
   ];
 
   return (
-    <section className="bg-blue-600 relative my-[50px] text-white">
-      <div className="p-5 bg-blue-950">
-        <div className="flex flex-col items-center justify-between md:w-full p-3">
-          <h1
-            data-aos="fade-left"
-            className="text-3xl font-black text-transparent bg-gradient-to-r from-[#671beb] to-purple-900 bg-clip-text"
-          >
-            Portfolio Showcase
-          </h1>
-          <p data-aos="fade-right" className="lg:w-[50%] text-center">
-            Explore my journey through projects, certifications, and technical
-            expertise. Each section represents a milestone in my continuous
-            learning path.
-          </p>
-        </div>
+    <section className="relative min-h-screen py-20 px-6 md:px-12 lg:px-20 bg-[#0d0d1e] text-white font-poppins overflow-hidden">
 
-        <div className="mt-[50px] bg-blue-400 p-3 rounded-lg space-y-6">
-          {/* Row with 3 Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <div className="flex flex-col md:flex-row-reverse bg-purple-950 py-6 p-3 rounded-lg justify-center items-center gap-2">
-              <FaCode />
-              <p>Project</p>
-            </div>
-            <div className="flex flex-col md:flex-row-reverse bg-purple-950 py-6 p-3 rounded-lg justify-center items-center gap-2">
-              <p>Certificate</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="8" r="4" />
-                <path d="M8 16l4-2 4 2v4l-4-2-4 2v-4z" />
-              </svg>
-            </div>
-            <div className="flex flex-col md:flex-row-reverse bg-purple-950 py-6 p-3 rounded-lg justify-center items-center gap-2">
-              <p>Tech Stack</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z"></path>
-                <path d="m7 16.5-4.74-2.85"></path>
-                <path d="m7 16.5 5-3"></path>
-                <path d="M7 16.5v5.17"></path>
-                <path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z"></path>
-                <path d="m17 16.5-5-3"></path>
-                <path d="m17 16.5 4.74-2.85"></path>
-                <path d="M17 16.5v5.17"></path>
-                <path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z"></path>
-                <path d="M12 8 7.26 5.15"></path>
-                <path d="m12 8 4.74-2.85"></path>
-                <path d="M12 13.5V8"></path>
-              </svg>
-            </div>
-          </div>
-
-          {/* Tech Stack Grid */}
-          <div className="bg-gray-800 group p-5 text-white rounded-xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-6">
-            {techStack.map(({ logo, label, aos }, index) => (
-              <div
-                key={index}
-                data-aos={aos}
-                className="gradient-border-card relative m-auto p-8 backdrop-blur-lg bg-gray-400/10 rounded-lg items-center justify-center text-center space-y-2 transition-all duration-300 hover:bg-gray-500/50 hover:scale-110"
-              >
-                <img src={logo} alt={label} className="h-[90px] w-[90px]" />
-                <p className="font-bold">{label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* Header */}
+      <div
+        className="relative z-10 max-w-screen-xl mx-auto text-center mb-16"
+        data-aos="fade-down"
+      >
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 text-transparent bg-clip-text">
+          My Portfolio
+        </h1>
+        <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          Real-world projects showcasing full-stack and modern frontend development.
+        </p>
       </div>
+
+      {/* Grid */}
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 max-w-7xl mx-auto">
+
+        {projectList.map((project, index) => (
+          <div
+            key={index}
+            className="bg-gray-900/60 rounded-2xl p-6 shadow-2xl border border-gray-700 backdrop-blur-md
+            transform transition-all duration-500 hover:scale-[1.03] hover:shadow-purple-700/40 hover:border-purple-500
+            group relative overflow-hidden"
+            data-aos="zoom-in-up"
+            data-aos-delay={index * 150}
+          >
+
+            {/* IMAGE OR BACKEND PLACEHOLDER */}
+            <div className="h-[180px] rounded-xl mb-6 overflow-hidden cursor-pointer">
+
+              {project.backendOnly ? (
+                <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-400 text-sm italic">
+                  Backend Project — No UI Preview
+                </div>
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  onClick={() => setPreviewImage(project.image)}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              )}
+
+            </div>
+
+            <h2 className="text-2xl font-bold mb-3 bg-gradient-to-r from-blue-300 to-purple-300 text-transparent bg-clip-text">
+              {project.title}
+            </h2>
+
+            <p className="text-gray-300 text-sm mb-4 min-h-[90px] leading-relaxed">
+              {project.description}
+            </p>
+
+            <div className="flex flex-wrap gap-2 mb-6">
+              {project.tech.map((tech) => (
+                <span
+                  key={tech}
+                  className="bg-purple-600/30 text-purple-200 text-xs px-3 py-1 rounded-full border border-purple-500
+                  hover:bg-purple-500 hover:text-white transition"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex justify-between items-center pt-4 border-t border-gray-700/50">
+
+              {!project.backendOnly && (
+                <a
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex p-0.5 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 hover:scale-105 transition shadow-md"
+                >
+                  <span className="px-4 py-2 bg-[#0d0d1e] rounded-full flex items-center gap-1.5">
+                    Demo <FaExternalLinkAlt className="text-xs" />
+                  </span>
+                </a>
+              )}
+
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex p-0.5 rounded-full bg-gradient-to-br from-purple-600 to-pink-500 hover:scale-105 transition shadow-md"
+              >
+                <span className="px-4 py-2 bg-[#0d0d1e] rounded-full flex items-center gap-1.5">
+                  Code <FaInfoCircle className="text-xs" />
+                </span>
+              </a>
+
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* IMAGE PREVIEW MODAL */}
+      {previewImage && (
+        <div
+          onClick={() => setPreviewImage(null)}
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-pointer"
+        >
+          <img
+            src={previewImage}
+            alt="Preview"
+            className="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl"
+          />
+        </div>
+      )}
+
     </section>
   );
 }
 
-export default Portfolio;
+export default Projects;

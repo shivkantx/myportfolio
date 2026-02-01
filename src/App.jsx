@@ -14,7 +14,7 @@ import Education from "./pages/Education";
 import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 
-const HEADER_HEIGHT = 90; // adjust if header size changes
+const HEADER_HEIGHT = 90;
 
 function ScrollToSectionOnRouteChange() {
   const location = useLocation();
@@ -23,14 +23,14 @@ function ScrollToSectionOnRouteChange() {
     const sectionId = location.pathname.slice(1) || "home";
     const element = document.getElementById(sectionId);
 
-    if (element) {
-      const y =
-        element.getBoundingClientRect().top +
-        window.pageYOffset -
-        HEADER_HEIGHT;
+    if (!element) return;
 
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
+    const y =
+      element.getBoundingClientRect().top +
+      window.pageYOffset -
+      HEADER_HEIGHT;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
   }, [location]);
 
   return null;
@@ -38,34 +38,13 @@ function ScrollToSectionOnRouteChange() {
 
 function PageContent() {
   return (
-    <main
-      className="relative bg-[#0d0d1e] overflow-x-hidden w-full text-white pt-[60px]"
-    >
-      {/* Each section keeps its own spacing — no global squeeze */}
-
-      <section id="home">
-        <Home />
-      </section>
-
-      <section id="about">
-        <About />
-      </section>
-
-      <section id="skills">
-        <Skills />
-      </section>
-
-      <section id="projects">
-        <Projects />
-      </section>
-
-      <section id="education">
-        <Education />
-      </section>
-
-      <section id="contact">
-        <Contact />
-      </section>
+    <main className="relative bg-[#0d0d1e] w-full overflow-x-hidden text-white pt-[90px]">
+      <section id="home"><Home /></section>
+      <section id="about"><About /></section>
+      <section id="skills"><Skills /></section>
+      <section id="projects"><Projects /></section>
+      <section id="education"><Education /></section>
+      <section id="contact"><Contact /></section>
     </main>
   );
 }
@@ -73,11 +52,18 @@ function PageContent() {
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 800,
-      once: true,
-      mirror: false,
+      duration: 800,        // same smooth speed as your original
+      once: false,         // allow re-animation on scroll
+      mirror: true,        // animate when scrolling back
       easing: "ease-out-cubic",
+      offset: 120,
     });
+
+    // Important: continuous refresh like your old behavior
+    const refresh = () => AOS.refresh();
+    window.addEventListener("scroll", refresh);
+
+    return () => window.removeEventListener("scroll", refresh);
   }, []);
 
   return (

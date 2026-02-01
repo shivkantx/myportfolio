@@ -14,14 +14,22 @@ import Education from "./pages/Education";
 import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 
+const HEADER_HEIGHT = 90; // adjust if header size changes
+
 function ScrollToSectionOnRouteChange() {
   const location = useLocation();
 
   useEffect(() => {
     const sectionId = location.pathname.slice(1) || "home";
     const element = document.getElementById(sectionId);
+
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const y =
+        element.getBoundingClientRect().top +
+        window.pageYOffset -
+        HEADER_HEIGHT;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   }, [location]);
 
@@ -30,30 +38,35 @@ function ScrollToSectionOnRouteChange() {
 
 function PageContent() {
   return (
-    <div
-      className="relative bg-[#0d0d1e] overflow-x-hidden w-full sm:px-6 md:px-10  
-       
-      backdrop-blur-2xl text-white"
+    <main
+      className="relative bg-[#0d0d1e] overflow-x-hidden w-full text-white pt-[60px]"
     >
-      <div id="home">
+      {/* Each section keeps its own spacing — no global squeeze */}
+
+      <section id="home">
         <Home />
-      </div>
-      <div id="about">
+      </section>
+
+      <section id="about">
         <About />
-      </div>
-      <div id="skills">
+      </section>
+
+      <section id="skills">
         <Skills />
-      </div>
-      <div id="projects">
+      </section>
+
+      <section id="projects">
         <Projects />
-      </div>
-      <div id="education">
+      </section>
+
+      <section id="education">
         <Education />
-      </div>
-      <div id="contact">
+      </section>
+
+      <section id="contact">
         <Contact />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 
@@ -61,10 +74,10 @@ function App() {
   useEffect(() => {
     AOS.init({
       duration: 800,
-      once: false,
-      mirror: true,
+      once: true,
+      mirror: false,
+      easing: "ease-out-cubic",
     });
-    AOS.refresh();
   }, []);
 
   return (

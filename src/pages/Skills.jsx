@@ -41,7 +41,7 @@ function Skills() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
         {/* Frontend */}
-        <SkillBlock title="Frontend" aos="fade-left">
+        <SkillBlock title="Frontend" aos="fade-right">
           <SkillCard Icon={SiNextdotjs} color="#ffffff" label="Next.js" />
           <SkillCard Icon={FaReact} color="#61DAFB" label="React.js" />
           <SkillCard Icon={RiTailwindCssFill} color="#06B6D4" label="Tailwind CSS" />
@@ -52,7 +52,7 @@ function Skills() {
         </SkillBlock>
 
         {/* Backend */}
-        <SkillBlock title="Backend & APIs" aos="fade-right">
+        <SkillBlock title="Backend & APIs" aos="fade-left">
           <SkillCard Icon={FaNodeJs} color="#3C873A" label="Node.js" />
           <SkillCard Icon={SiExpress} color="#ffffff" label="Express.js" />
           <SkillCard Icon={SiJsonwebtokens} color="#f5f5f5" label="JWT Auth" />
@@ -62,13 +62,13 @@ function Skills() {
         </SkillBlock>
 
         {/* Programming */}
-        <SkillBlock title="Programming Languages" aos="fade-left">
+        <SkillBlock title="Programming Languages" aos="fade-right">
           <SkillCard Icon={FaJava} color="#007396" label="Java" />
           <SkillCard Icon={FaJsSquare} color="#F7DF1E" label="JavaScript" />
         </SkillBlock>
 
         {/* Tools */}
-        <SkillBlock title="Tools & Environment" aos="fade-right">
+        <SkillBlock title="Tools & Environment" aos="fade-left">
           <SkillCard Icon={VscVscodeInsiders} color="#007ACC" label="VS Code" />
           <SkillCard Icon={SiIntellijidea} color="#ffffff" label="IntelliJ IDEA" />
           <SkillCard Icon={SiJupyter} color="#F37626" label="Jupyter" />

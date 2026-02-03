@@ -1,110 +1,109 @@
 import React from "react";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-  FaXTwitter,
-} from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaArrowUp } from "react-icons/fa";
 
-const Footer = () => {
-  const handleScroll = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (!section) return;
-    section.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const navItems = [
-    { name: "Home", id: "home" },
-    { name: "About", id: "about" },
-    { name: "Skills", id: "skills" },
-    { name: "Projects", id: "projects" },
-    { name: "Education", id: "education" },
-    { name: "Contact", id: "contact" },
-  ];
-
-  const socials = [
-    {
-      icon: <FaGithub />,
-      link: "https://github.com/shivkantx",
-      label: "GitHub",
-    },
-    {
-      icon: <FaLinkedin />,
-      link: "https://www.linkedin.com/in/shiv-kant-036a17289/",
-      label: "LinkedIn",
-    },
-    {
-      icon: <FaXTwitter />,
-      link: "https://x.com/ShivkantPal8",
-      label: "X (Twitter)",
-    },
-    {
-      icon: <FaEnvelope />,
-      link: "mailto:your.email@example.com", // replace with real email if desired
-      label: "Email",
-    },
-  ];
-
+function Footer() {
   return (
-    <footer className="relative py-12 px-6 md:px-12 lg:px-20 bg-[#0d0d1e] text-white overflow-hidden border-t border-gray-800 shadow-inner">
+    <footer className="relative bg-[#0d0d1e] text-white overflow-hidden">
 
-      {/* Ambient depth layers */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] to-transparent opacity-30 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-gray-950 to-transparent opacity-50 pointer-events-none"></div>
+      {/* Glow background */}
+      <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+        <div className="w-[500px] h-[500px] bg-purple-700 rounded-full blur-[180px] opacity-20" />
+      </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-20">
 
-        {/* Branding */}
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg tracking-wide">
-          Shiv Kant
-        </h2>
+        {/* Main grid */}
+        <div className="grid md:grid-cols-3 gap-12 items-start">
 
-        {/* Footer Navigation */}
-        <nav className="flex flex-wrap justify-center gap-4 md:gap-8 mb-6">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleScroll(item.id)}
-              className="relative text-gray-300 hover:text-purple-400 text-base md:text-lg font-medium
-                         transition-all duration-300 transform hover:scale-105
-                         after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0
-                         after:bg-gradient-to-r from-purple-500 to-blue-500
-                         after:transition-all after:duration-300
-                         hover:after:w-full
-                         focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5"
-              aria-label={`Scroll to ${item.name}`}
-            >
-              {item.name}
-            </button>
-          ))}
-        </nav>
+          {/* Branding */}
+          <div className="space-y-4">
+            <h2 className="text-2xl font-extrabold tracking-wide">
+              <span className="text-purple-400">&lt;</span>
+              Shiv<span className="text-purple-400">/</span>Kant
+              <span className="text-purple-400">&gt;</span>
+            </h2>
+            <p className="text-gray-400 leading-relaxed max-w-sm">
+              Full Stack Developer crafting high-performance web applications
+              with clean UI, secure authentication and scalable backend systems.
+            </p>
+          </div>
 
-        {/* Social Icons */}
-        <div className="flex justify-center gap-6 md:gap-8 mb-8">
-          {socials.map((item) => (
-            <a
-              key={item.label}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={item.label}
-              className="text-gray-400 text-2xl md:text-3xl
-                         transition-all duration-300 transform
-                         hover:scale-125 hover:text-purple-400 hover:drop-shadow-xl"
-            >
-              {item.icon}
-            </a>
-          ))}
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-purple-400">
+              Quick Links
+            </h3>
+            <ul className="space-y-3 text-gray-400">
+              {["Home", "Projects", "Skills", "About", "Certificates", "Contact"].map(link => (
+                <li
+                  key={link}
+                  className="hover:text-purple-400 transition cursor-pointer"
+                  onClick={() =>
+                    document.getElementById(link.toLowerCase())?.scrollIntoView({
+                      behavior: "smooth",
+                    })
+                  }
+                >
+                  {link}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Social + CTA */}
+          <div className="space-y-5">
+            <h3 className="text-lg font-semibold text-purple-400">
+              Connect With Me
+            </h3>
+
+            <div className="flex gap-5 text-2xl text-gray-400">
+              <a
+                href="https://github.com/shivkantx"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-white hover:scale-110 transition"
+              >
+                <FaGithub />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/shiv-kant-036a17289/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-blue-400 hover:scale-110 transition"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
+
+            <p className="text-gray-400 text-sm">
+              Open for internships, freelance & full-stack roles 🚀
+            </p>
+          </div>
+
         </div>
 
-        {/* Copyright */}
-        <p className="text-sm md:text-base text-gray-500 tracking-wide">
-          © {new Date().getFullYear()} Shiv Kant. All rights reserved. Crafted with ❤️
-        </p>
+        {/* Divider */}
+        <div className="my-14 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+        {/* Bottom bar */}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
+
+          <p>
+            © {new Date().getFullYear()} Shiv Kant. All rights reserved.
+          </p>
+
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="flex items-center gap-2 text-purple-400 hover:text-white transition"
+          >
+            Back to top <FaArrowUp />
+          </button>
+        </div>
 
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;

@@ -3,6 +3,8 @@ import { Link as ScrollLink } from "react-scroll";
 import { useNavigate } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaBars, FaTimes } from "react-icons/fa";
 
+const HEADER_HEIGHT = 90;
+
 function Header() {
   const [activeSection, setActiveSection] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
@@ -15,14 +17,15 @@ function Header() {
     { id: "projects", label: "Projects" },
     { id: "skills", label: "Skills" },
     { id: "about", label: "About" },
+    { id: "certificates", label: "Certificates" },
     { id: "education", label: "Education" },
     { id: "contact", label: "Contact" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setScrolled(scrollPosition > 20);
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 20);
 
       let current = "home";
 
@@ -30,10 +33,10 @@ function Header() {
         const section = document.getElementById(item.id);
         if (!section) continue;
 
-        const top = section.offsetTop - 120;
+        const top = section.offsetTop - HEADER_HEIGHT - 40;
         const bottom = top + section.offsetHeight;
 
-        if (scrollPosition >= top && scrollPosition < bottom) {
+        if (scrollY >= top && scrollY < bottom) {
           current = item.id;
           break;
         }
@@ -56,12 +59,11 @@ function Header() {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${
-          scrolled
-            ? "bg-[#0d0d1e]/60 backdrop-blur-xl shadow-lg border-b border-white/10"
-            : "bg-[#0d0d1e]/30 backdrop-blur-md border-b border-white/5"
+        ${scrolled
+          ? "bg-[#0d0d1e]/55 backdrop-blur-2xl shadow-xl border-b border-white/10"
+          : "bg-[#0d0d1e]/30 backdrop-blur-xl border-b border-white/5"
         }`}
-      style={{ height: "90px" }}
+      style={{ height: HEADER_HEIGHT }}
     >
       <nav className="h-full text-white px-4 md:px-12 lg:px-20 max-w-screen-2xl mx-auto flex items-center justify-between">
 
@@ -77,22 +79,21 @@ function Header() {
           <span className="text-purple-400 group-hover:text-blue-400 transition">&gt;</span>
         </div>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Nav */}
         <ul className="hidden md:flex items-center gap-8 text-gray-300 font-semibold">
           {menuItems.map((item) => (
             <li key={item.id}>
               <ScrollLink
                 to={item.id}
                 smooth
-                duration={700}
-                offset={0}
+                duration={650}
+                offset={-HEADER_HEIGHT}
                 className={`cursor-pointer relative pb-1 transition hover:text-purple-400
                   after:absolute after:left-0 after:bottom-0 after:h-[2px]
                   after:bg-gradient-to-r from-purple-500 to-blue-500 after:transition-all
-                  ${
-                    activeSection === item.id
-                      ? "text-purple-400 after:w-full"
-                      : "after:w-0 hover:after:w-full"
+                  ${activeSection === item.id
+                    ? "text-purple-400 after:w-full"
+                    : "after:w-0 hover:after:w-full"
                   }
                 `}
               >
@@ -133,7 +134,7 @@ function Header() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-[#0d0d1e]/70 backdrop-blur-xl border-t border-white/10 py-6">
+        <div className="md:hidden bg-[#0d0d1e]/75 backdrop-blur-2xl border-t border-white/10 py-6">
 
           <ul className="flex flex-col items-center space-y-5 text-gray-300 text-lg font-semibold">
             {menuItems.map((item) => (
@@ -141,15 +142,14 @@ function Header() {
                 <ScrollLink
                   to={item.id}
                   smooth
-                  duration={700}
-                  offset={0}
+                  duration={650}
+                  offset={-HEADER_HEIGHT}
                   onClick={() => setIsOpen(false)}
                   className={`block py-2 px-4 rounded-lg transition
                     hover:bg-purple-600/20 hover:text-purple-400
-                    ${
-                      activeSection === item.id
-                        ? "text-purple-400 bg-purple-600/30"
-                        : ""
+                    ${activeSection === item.id
+                      ? "text-purple-400 bg-purple-600/30"
+                      : ""
                     }
                   `}
                 >

@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[calc(100vh-90px)] flex items-center bg-[#0f1123] text-white px-6 sm:px-10 lg:px-24 overflow-hidden"
+      className="relative min-h-[calc(100vh-90px)] flex items-center bg-[#0f1123] text-white px-6 sm:px-10 lg:px-24 py-7 sm:py-10 lg:py-0 overflow-hidden"
     >
       {/* centered glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

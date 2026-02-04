@@ -22,13 +22,21 @@ function Projects() {
       githubLink: "https://github.com/shivkantx/stackoverflow-appwrite",
     },
     {
-      title: "Queue Management System",
+      title: "VideoTube Backend API",
       description:
-        "A complete queue handling system to efficiently manage user flow with clean UI and structured system logic.",
-      tech: ["Next.js", "React", "System Logic"],
-      image: queue,
-      liveLink: "https://queue-management-system-ten.vercel.app/",
-      githubLink: "https://github.com/shivkantx/Queue-Management-System",
+        "Scalable REST API featuring JWT authentication and structured backend architecture.",
+      tech: ["Node.js", "Express.js", "JWT", "REST API"],
+      backendOnly: true,
+      githubLink: "https://github.com/shivkantx/VideoTube",
+    },
+    {
+      title: "Personal Portfolio Website",
+      description:
+        "Modern animated portfolio showcasing projects, skills and resume.",
+      tech: ["React", "Tailwind CSS", "Animations"],
+      image: portfolio,
+      liveLink: "https://myportfolio-mu-self-66.vercel.app/",
+      githubLink: "https://github.com/shivkantx/myportfolio",
     },
     {
       title: "Authentication System with User Management",
@@ -49,21 +57,13 @@ function Projects() {
       githubLink: "https://github.com/shivkantx/Cloudinary-SSH",
     },
     {
-      title: "VideoTube Backend API",
+      title: "Queue Management System",
       description:
-        "Scalable REST API featuring JWT authentication and structured backend architecture.",
-      tech: ["Node.js", "Express.js", "JWT", "REST API"],
-      backendOnly: true,
-      githubLink: "https://github.com/shivkantx/VideoTube",
-    },
-    {
-      title: "Personal Portfolio Website",
-      description:
-        "Modern animated portfolio showcasing projects, skills and resume.",
-      tech: ["React", "Tailwind CSS", "Animations"],
-      image: portfolio,
-      liveLink: "https://shivkantx.github.io/myportfolio",
-      githubLink: "https://github.com/shivkantx/myportfolio",
+        "A complete queue handling system to efficiently manage user flow with clean UI and structured system logic.",
+      tech: ["Next.js", "React", "System Logic"],
+      image: queue,
+      liveLink: "https://queue-management-system-ten.vercel.app/",
+      githubLink: "https://github.com/shivkantx/Queue-Management-System",
     },
   ];
 

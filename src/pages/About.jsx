@@ -14,7 +14,7 @@ const About = () => {
     fetch("https://api.github.com/users/shivkantx")
       .then((res) => res.json())
       .then((data) => setRepos(data.public_repos || 0))
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   return (
@@ -68,7 +68,7 @@ const About = () => {
             </h3>
 
             <p className="text-gray-400 leading-relaxed text-lg">
-              I’m a Full Stack Developer focused on building high-performance applications using 
+              I’m a Full Stack Developer focused on building high-performance applications using
               <strong> Next.js</strong>, <strong>React</strong> and the <strong>MERN stack</strong>.
             </p>
 
@@ -78,7 +78,7 @@ const About = () => {
             </p>
 
             <a
-              href="https://drive.google.com/file/d/1mrf5yWbkYLEIyRYUPZEEWpydTfnq9zqb/view"
+              href="https://drive.google.com/file/d/1Mcrn7D3HHUqglIBhS1LUATje_8fJX3a_/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 px-7 py-3 rounded-xl font-semibold hover:scale-105 transition shadow-lg hover:shadow-purple-500/40"
